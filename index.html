@@ -1,0 +1,196 @@
+<!-- Оставь надежду, всяк сюда входящий! -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Майкл Ошино Портфолио</title>
+    <meta name="description" content="Cайт об амбициозном и начинающем специалисте в DevOps. Данный сайт был создан как моё резюме и портфолио, информация актуальна на 99%...">
+    <meta name="keywords" content="Linux, DevOps, michaeloshino, michael oshino, oshino, DevOps портфолио, резюме, системный администратор, технологии, IT специалист">
+    <meta name="author" content="Michael Oshino">
+
+    <meta property="og:title" content="Майкл Ошино Портфолио">
+    <meta property="og:description" content="Сайт об амбициозном и начинающем специалисте в DevOps.">
+    <meta property="og:image" content="assets/images/logo_white.svg">
+    <meta property="og:url" content="https://michaeloshino.ru">
+    <meta property="og:type" content="website">
+
+    <meta name="google-site-verification" content="JPQcC-rNvq7uH-u7NpxWFqAc6RtodpXi84KjxZ0OoV4" />
+    
+    <link href="assets/images/logo_white.svg" rel="icon">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+     <!-- Навигация -->
+    <div class="nav-bar">
+        <a href="#intro" class="nav-link">◯</a>
+        <a href="#about" class="nav-link">◯</a>
+        <a href="#portfolio_contact" class="nav-link">◯</a>
+    </div>
+    <!-- Приветсвие -->
+    <section id="intro">
+        <div class="container_left">
+                <div class="hello">
+                <h1>Привет!</h1>
+                <h2>Я Михаил и стремлюсь в DevOps, может особых талантов у меня и нет, но вот стремлений c амбициями хоть отбавляй!</h2>
+                <h3><a href="assets/download/Резюме.pdf" target="_blank">Резюме.<img src="assets/images/pdf_icon_red.svg" alt='Скачать портфолио'></a></h3>
+            </div>
+        </div>
+        <div class="container_right">
+            <div class="eye">
+               <div class="background"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обо мне и моих навыках -->
+    <section id="about"> 
+        <div class="container_left">
+            <div class="accordion-title" onclick="toggleContent('content1')"><img src="assets/images/hard.svg" alt='Скачать портфолио'><span>Hard Скилы</span></div>
+            <div class="accordion-title" onclick="toggleContent('content2')"><img src="assets/images/soft.svg" alt='Скачать портфолио'><span>Soft Скилы</span></div>
+            <div class="accordion-title" onclick="toggleContent('content3')"><img src="assets/images/jobs.svg" alt='Скачать портфолио'><span>Опыт работы</span></div>
+        </div>
+        <div class="container_right">
+            <p>Моя цель — развитие в системном администрировании, методиках и инструментах DevOps, а также в области разработки, информационной безопасности и сетевого администрирования, что, на мой взгляд, никогда не будет лишним.
+                <div style="border-bottom: 2px solid #ff4a57; width: 10%; height: 10px; margin: 15px 0;"></div>
+                </br>В описании своих навыков я мог опустить детали, а в некоторых моментах немного преувеличить, но я полностью осознаю свои сильные и слабые стороны. 
+                </br>Я старался представить полное и объективное представление о своих навыках, однако в некоторых областях мой опыт может быть ограничен.
+            </p> 
+            <div id="content1" class="accordion-content">
+            <p>
+            <b>Linux:</b> Общий опыт работы с Linux на уровне настройки и администрирования серверов: <br>
+            &nbsp;&nbsp;• Мониторинг состояния системы: htop, top, atop, ps, df, du, free; <br>
+            &nbsp;&nbsp;• Настройка автозапуска и управление сервисами с помощью systemctl; <br>
+            &nbsp;&nbsp;• Анализ системных и логов приложений в /var/log и journalctl; <br>
+            &nbsp;&nbsp;• Создание задач в cron; <br>
+            &nbsp;&nbsp;• Установка ПО (например, nginx) из репозиториев и создание конфигураций для работы веб-сайтов; <br>
+            &nbsp;&nbsp;• Работа с правами: chown, chmod. <br>
+
+            <br><b>Docker и контейнеризация:</b> Опыт работы с Docker, Docker Compose и Dockerfile для развертывания приложений: <br>
+            &nbsp;&nbsp;• Cоздание и управление контейнерами; <br>
+            &nbsp;&nbsp;• Работа с Docker Compose; <br>
+            &nbsp;&nbsp;• Создание контейнеров через Dockerfile. <br>
+
+            <br><b>DNS и сетевые технологии:</b> Понимание работы DNS, настройки записей, принципов работы сети: <br>
+            &nbsp;&nbsp;• Настройка DNS-записей (A, AAAA, SPF, DKIM, TXT, NS и других);<br>
+            &nbsp;&nbsp;• Проверка работы доменов;<br>
+            &nbsp;&nbsp;• Понимание TCP/IP и модели OSI.<br>
+
+            <br><b>Сетевые инструменты:</b> Опыт диагностики сетевых проблем и анализа сетевого трафика: <br>
+            &nbsp;&nbsp;• dig, whois, mtr, ping, ss, ip, tcpdump, curl, wget: использование для диагностики сетевых проблем и отслеживания активности.<br>
+
+            <br><b>SSL-сертификаты:</b> Выпуск и настройка SSL-сертификатов для защиты веб-сайтов: <br>
+            &nbsp;&nbsp;• Выпуск SSL-сертификатов через certbot;<br>
+            &nbsp;&nbsp;• Настройка HTTPS на веб-серверах (nginx, apache).<br>
+
+            <br><b>Скрипты и автоматизация:</b> Опыт написания скриптов для облегчения жизни: <br>
+            &nbsp;&nbsp;• Написание скриптов на bash.
+        </p>
+            </div>
+            <div id="content2" class="accordion-content">
+            <p>
+                <b>Критическое и аналитическое мышление:</b> умею анализировать и объективно оценивать информацию/ситуацию, выявляю те или иные стороны решений и нахожу альтернативы, при необходимости. <br>
+                <br><b>Быстрая обучаемость:</b> достаточно быстро усваиваю новую информацию и адаптируюсь к изменениям. <br>
+                <br><b>Общительность:</b> дружелюбный, позитивный, общительный, разносторонний. <br>
+                <br><b>Стрессоустойчивость:</b> эффективно работаю в условиях высокой нагрузки и коротких сроков. <br>
+            </p>
+            </div>
+            <div id="content3" class="accordion-content">
+            <p>
+                <b><a href="https://timeweb.cloud/" target="_blank">Timeweb Cloud</a>:</b> Оператор информационной поддержки: </br>
+                &nbsp;&nbsp;• Работа с клиентскими VDS/VPS, проверка работоспособности сервера и выявление проблем; <br>
+                &nbsp;&nbsp;• Выпуск и установка SSL сертификатов для веб-серверов nginx, apache и в редких случаях на windows server через IIS и openserver; <br>
+                &nbsp;&nbsp;• Установка ПО по запросу, в основном: ispmanager, fastpanel, vestacp, hestiacp, imunify, wg-easy и работа с ними; <br>
+                &nbsp;&nbsp;• Проверка работоспособности домена, проверка его DNS и т.д.; <br>
+                &nbsp;&nbsp;• Настройка почты через панели веб-сервера (ispmanager, fastpanel и т.д.), указание почтовых DNS и проверка работы почты;<br>
+                &nbsp;&nbsp;• Установка и настройка nginx в качестве реверс прокси, к примеру для docker контейнера или node приложения; <br>
+                &nbsp;&nbsp;• Так же консультация по услугам компании (VDS/VPS, DBaaS, FWaaS, K8s, VPN, т.д.) и работы с ними. <br>
+
+                <br><b><a href="https://www.at-home.ru/" target="_blank">Эт-Хоум</a> и <a href="https://skynet.ru/" target="_blank">Скайнет</a>:</b> первая линия поддержки:<br>
+                &nbsp;&nbsp;• Консультация клиентов по договору, услугам компании и подключенным услугам клиента; <br>
+                &nbsp;&nbsp;• Проверка работоспособности сети и эскалация на техническую поддержку.
+            </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио и контакты -->
+    <section id="portfolio_contact">
+        <div class="container_left">
+                <h1>Портфолио:</h1>
+                <button onclick="showModal('modal1')">Pet проекты</button>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="hideModal('modal1')">&times;</span>
+                        <div class="text">
+                            <div id="this-site" class="header">Данный сайт</div>
+                            <p>
+                                
+                            </p>
+
+                            <div id="personal-services" class="header">Личные сервисы</div>
+                            <p>
+
+                            </p>
+
+                            <div id="side-project" class="header">Side проект</div>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div class="modal-menu">
+                            <a href="#this-site">Данный сайт</a> </br>
+                            <a href="#personal-services">Личные сервисы</a> </br>
+                            <a href="#side-project">Side проект</a> </br>
+                        </div>
+                    </div>
+                </div>
+                <!-- Добавить больше проектов по необходимости -->
+                                <button onclick="showModal('modal2')">Скрипты и документация</button>
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="hideModal('modal2')">&times;</span>
+                        <div class="text">
+                            <div id="scrips" class="header">Скрипты</div>
+                            <p>
+                            </p>
+
+                            <div id="doc" class="header">Документация</div>
+                            <p>
+
+                            </p>
+                        </div>
+                        <div class="modal-menu">
+                            <a href="#scrips">Скрипты</a> </br>
+                            <a href="#doc">Документация</a> </br>
+                        </div>
+                    </div>
+                </div>
+                <button><a href="https://github.com/MichaelOshino" target="_blank">GitHub</a></button>
+        </div>
+        <div class="container_right">
+            <h1>Контакты:</h1>
+            <div class="contact-title"><a href="https://t.me/MichaelOshino" target="_blank"><img src="assets/images/telegram.svg" alt='Скачать портфолио'><span>Telegram</span></a></div>
+            <div class="contact-title"><a href="mailto:neet@michaeloshino.ru" draggable="false" target="_blank"><img src="assets/images/mail.svg" alt='Скачать портфолио'><span>neet@michaeloshino.ru</span></a></div>
+            <div class="contact-title"><a href="mailto:michael.oshino.neet@gmail.com" draggable="false" target="_blank"><img src="assets/images/mail1.svg" alt='Скачать портфолио'><span>michael.oshino.neet@gmail.com</span></a></div>
+            
+            
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>Сайт разработал и реализовал <a href="https://github.com/MichaelOshino" target="_blank">Михаил (Michael Oshino)</a>!</p>
+    </footer>
+
+<script src="assets/js/logo_move.js"></script>
+<script src="assets/js/modal.js"></script>
+<script src="assets/js/spoiler.js"></script>
+<script src="assets/js/menu.js"></script>
+<script src="assets/js/blur.js"></script>
+ <!-- <script src="assets/js/scroll.js"></script> -->
+
+
+</body>
+</html>
