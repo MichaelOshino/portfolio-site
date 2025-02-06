@@ -22,13 +22,12 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-     <!-- Навигация -->
     <div class="nav-bar">
         <a href="#intro" class="nav-link">◯</a>
         <a href="#about" class="nav-link">◯</a>
         <a href="#portfolio_contact" class="nav-link">◯</a>
     </div>
-    <!-- Приветсвие -->
+
     <section id="intro">
         <div class="container_left">
                 <div class="hello">
@@ -44,7 +43,6 @@
         </div>
     </section>
 
-    <!-- Обо мне и моих навыках -->
     <section id="about"> 
         <div class="container_left">
             <div class="accordion-title" onclick="toggleContent('content1')"><img src="assets/images/hard.svg" alt='Скачать портфолио'><span>Hard Скилы</span></div>
@@ -115,7 +113,6 @@
         </div>
     </section>
 
-    <!-- Портфолио и контакты -->
     <section id="portfolio_contact">
         <div class="container_left">
                 <h1>Портфолио:</h1>
@@ -124,41 +121,71 @@
                     <div class="modal-content">
                         <span class="close" onclick="hideModal('modal1')">&times;</span>
                         <div class="text">
-                            <div id="this-site" class="header">Данный сайт</div>
-                            <p>
-                                
-                            </p>
-
                             <div id="personal-services" class="header">Личные сервисы</div>
                             <p>
-
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                На своем VDS/VPS сервере, я объединил несколько сервисов, включая nextcloud, firefly-iii, mailu, wireguard, ryot и данный сайт. 
+                                Всё работает в docker-контейнерах, проксируется через nginx (так же в контейнере) и управляется docker compose. 
+                                Для удобства конфигурации переменные вынесены в .env файлы, compose не монолитный, а управление сервисами автоматизировано с помощью bash-скрипта.
+                                <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Подробнее можете ознакомиться с проектом на <a href="https://github.com/MichaelOshino/self-hosted-stack" target="_blank">github</a>, где и описана его настройка.
+                                <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Уделено внимание структуре проекта и документации, чтобы при необходимости можно было быстро внести изменения или, при необходимости, переехать на другой сервер.
+                                Так как проект предполагает изначально личное использование, то о горизонтальном масштабировании речи не идёт, но при желании, за счет модульности, можно.
+                                <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Дальнейшие планы включают автоматизацию развертывания инфраструктуры с terraform и ansible, миграцию в k8s, настройку CI/CD с использованием jenkins, интеграцию мониторинга через prometheus + grafana, а также работу с логами с использованием стека ELK + вероятно замена nginx на traefik. Хотя эти инструменты пока не довелось потрогать и есть только общее представление о них.
                             </p>
 
-                            <div id="side-project" class="header">Side проект</div>
+                            <div id="this-site" class="header">Данный сайт</div>
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Текущий сайт обычная статика, если интересно, то код на <a href="https://github.com/MichaelOshino/portfolio-site" target="_blank">github</a>. JS написан AI, хех.
+                                <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Для удобства развертывания, написан простенький dockerfile с healthcheck, а так же воспроизведена структура проекта выше, 
+                                что для интеграции в него позволяет просто клонировать репозиторий сайта, скопировать файлы, запустить compose 
+                                сайта и перезапустить compose nginx реверс прокси. 
+                            </p>
+
+                            <!-- <div id="side-project" class="header">Side проект</div>
                             <p>
 
-                            </p>
+                            </p> -->
                         </div>
                         <div class="modal-menu">
-                            <a href="#this-site">Данный сайт</a> </br>
                             <a href="#personal-services">Личные сервисы</a> </br>
-                            <a href="#side-project">Side проект</a> </br>
+                            <a href="#this-site">Данный сайт</a> </br>
+                            <!-- <a href="#side-project">Side проект</a> </br> -->
                         </div>
                     </div>
                 </div>
-                <!-- Добавить больше проектов по необходимости -->
-                                <button onclick="showModal('modal2')"><span>Скрипты и документация</span></button>
+
+                <button onclick="showModal('modal2')"><span>Скрипты и документация</span></button>
                 <div id="modal2" class="modal">
                     <div class="modal-content">
                         <span class="close" onclick="hideModal('modal2')">&times;</span>
                         <div class="text">
                             <div id="scrips" class="header">Скрипты</div>
                             <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Для работы был написан и расшарен на коллег bash скрипт, который упрощает выпуск ssl сертификата let’s encrypt и 
+                                самоподписанного сертификата, поиска конфигурационных файлов веб-сервера (nginx, apache, в том числе на bitrixvm), 
+                                добавлением/изменением swap файла, измененеим hostname и небольшой справочной информацией.
+                                <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                В какой-то момент ещё был написан скрипт для создания wg конфигов и qr кодов со ссылками на их скачивание для нашего 
+                                образа с простым предустановленным wireguard + nginx. 
                             </p>
 
                             <div id="doc" class="header">Документация</div>
                             <p>
-
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Для коллег было написано 2 документации, по установке ssl сертификата в случаях, 
+                                когда на клиентском сервере docker прослушивает 80/443 порты, а так же по установке imunify в зависимости от используемой 
+                                панели управления (ispmanager, fastpanel, vestacp/hestiacp, при остутсвии панели/веб-сервера) на VDS/VPS. 
                             </p>
                         </div>
                         <div class="modal-menu">
@@ -174,12 +201,9 @@
             <div class="contact-title"><a href="https://t.me/MichaelOshino" target="_blank"><img src="assets/images/telegram.svg" alt='Скачать портфолио'><span>Telegram</span></a></div>
             <div class="contact-title"><a href="mailto:neet@michaeloshino.ru" draggable="false" target="_blank"><img src="assets/images/mail.svg" alt='Скачать портфолио'><span>neet@michaeloshino.ru</span></a></div>
             <div class="contact-title"><a href="mailto:michael.oshino.neet@gmail.com" draggable="false" target="_blank"><img src="assets/images/mail1.svg" alt='Скачать портфолио'><span>michael.oshino.neet@gmail.com</span></a></div>
-            
-            
         </div>
     </section>
 
-    <!-- Футер -->
     <footer>
         <p>Сайт разработал и реализовал <a href="https://github.com/MichaelOshino" target="_blank">Михаил (Michael Oshino)</a>!</p>
     </footer>
