@@ -1,38 +1,44 @@
 const eye = document.querySelector('.eye');
 const background = document.querySelector('.background');
-let timeoutId; // Переменная для хранения таймера
+let isAnimating = false; // Флаг, указывающий на анимацию
 
 eye.addEventListener('mousemove', (event) => {
-    const { offsetX, offsetY, target } = event;
-    const { clientWidth, clientHeight } = target;
+    if (isAnimating) return; // Блокируем взаимодействие, если идет анимация
 
-    // Находим центр глазка
-    const centerX = clientWidth / 2;
-    const centerY = clientHeight / 2;
+    // Получаем размеры элемента и его позицию на странице
+    const eyeRect = eye.getBoundingClientRect();
+    const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+    const eyeCenterY = eyeRect.top + eyeRect.height / 2;
 
-    // Рассчитываем относительное положение курсора от центра
-    const deltaX = offsetX - centerX;
-    const deltaY = offsetY - centerY;
+    // Получаем координаты мыши
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
 
-    // Рассчитываем значение смещения фона
-    const moveX = deltaX * 0.17; // Коэффициент, который регулирует скорость движения по оси X
-    const moveY = deltaY * 0.17; // Коэффициент, который регулирует скорость движения по оси Y
+    // Расстояние мыши от центра элемента
+    const deltaX = mouseX - eyeCenterX;
+    const deltaY = mouseY - eyeCenterY;
 
-    // Применяем новое положение фона
-    background.style.transform = `translate(${-moveX}px, ${-moveY}px) translate(-50%, -50%)`;
+    // Определяем угол наклона в зависимости от положения мыши
+    const maxTilt = 135; // Максимальный угол наклона
+    const tiltX = (deltaY / eyeRect.height) * maxTilt;
+    const tiltY = (deltaX / eyeRect.width) * maxTilt;
 
-    // Очищаем таймер, чтобы предотвратить лишний сброс
-    clearTimeout(timeoutId);
-
-    // Убираем анимацию, чтобы фон не двигался при движении мыши
-    background.style.animation = 'none';
+    // Применяем трансформацию с плавным переходом
+    background.style.transition = 'transform 0.1s ease-out'; // Плавный переход
+    background.style.transform = `perspective(500px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
 });
 
-// Сброс трансформации при выходе курсора из глазка с задержкой
+// Сбрасываем трансформацию с плавным переходом, когда мышь покидает элемент
 eye.addEventListener('mouseleave', () => {
-    timeoutId = setTimeout(() => {
-        // Сброс фона и возобновление анимации
-        background.style.transform = 'translate(-50%, -50%)'; // Возвращаем к изначальному положению
-        background.style.animation = 'float 3s ease-in-out infinite'; // Включаем анимацию снова
-    }, 200); // Задержка в 200 миллисекунд
+    if (isAnimating) return; // Блокируем взаимодействие, если идет анимация
+
+    isAnimating = true; // Включаем флаг анимации
+
+    background.style.transition = 'transform 0.3s ease-in-out'; // Плавное возвращение
+    background.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
+
+    // После завершения анимации разрешаем взаимодействие
+    setTimeout(() => {
+        isAnimating = false; // Сбрасываем флаг анимации через 100ms
+    }, 300); // 300ms — это длительность анимации
 });
