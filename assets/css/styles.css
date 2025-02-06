@@ -635,6 +635,9 @@ button a:hover {
 .modal-content .text p {
     text-align: left;
 }
+.modal-content .text p a{
+    text-decoration: underline 1px;
+}
 
 .modal-menu {
     width: 15.25%;
