@@ -874,6 +874,11 @@ footer {
         width: 8vw;
     }
 
+    .eye {
+        width: 100%;
+        margin: 15% 15% 15% 15%;
+    }
+
     #about {
         top:-5vh;
     }
@@ -897,6 +902,10 @@ footer {
         padding: 0;
         height: 60%;
         border-bottom: 1px solid #ff4a57;
+    }
+
+    .accordion-title span::before {
+        all: unset
     }
 
     .accordion-title:hover {
@@ -975,6 +984,10 @@ footer {
         all: unset
     }
 
+    button span::before {
+        all: unset
+    }
+
     button:hover::before {
         all: unset
     }
@@ -1019,6 +1032,14 @@ footer {
         font-size: 3.5vw;
     }
 
+    #portfolio_contact .container_right .contact-title a::before {
+        all: unset
+    }
+
+    #portfolio_contact .container_right .contact-title:last-child a img {
+        border: 1px solid #f5f5dc;
+    }
+
     .modal-content {
         width: 100vw;
         height: 100dvh;
@@ -1046,7 +1067,7 @@ footer {
     .modal-menu {
         position: absolute;
         width: 100vw;
-        height: 10vh;
+        height: 7vh;
         bottom: 0;
         display: flex;
         flex-direction: row;
@@ -1074,11 +1095,11 @@ footer {
 
     .close {
         all: unset;
-        bottom: 0;
-        right: 2.5%;
+        bottom: -0.5%;
+        right: 4%;
         z-index: 10;
         color: #ff4a57;
-        font-size: 5em;
+        font-size: 4em;
         float: right;
         cursor: pointer;
         position: absolute;
