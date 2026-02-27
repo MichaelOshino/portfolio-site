@@ -779,7 +779,7 @@ button a:hover {
     z-index: 10;
 }
 
-#portfolio_contact .container_right .contact-title:last-child a img {
+#portfolio_contact .container_right div.contact-title:first-of-type a img {
     border: 2px solid #f5f5dc;
 }
 
