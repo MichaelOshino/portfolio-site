@@ -41,9 +41,11 @@ jobs:
 
       - name: Вызов вебхука для автодеплоя
         if: github.ref == 'refs/heads/main'
+        env:
+          URL: ${{ secrets.CD_WEBHOOK_URL }}
+          SECRET: ${{ secrets.CD_WEBHOOK_SECRET }}
+          TAG: ${{ fromJSON(steps.meta.outputs.json).tags[0] }}
         run: |
-          SIGNATURE=$(echo -n "$GITHUB_SHA" | openssl dgst -sha256 -hmac "${{ secrets.CD_WEBHOOK_SECRET }}" | sed 's/^.* //')
-          curl -X POST "${{ secrets.CD_WEBHOOK_URL }}" \
-            -H "Content-Type: application/json" \
-            -H "X-Hub-Signature-256: sha256=$SIGNATURE" \
-            -d '{"ref":"main","sha":"'"$GITHUB_SHA"'","tag":"'"${{ steps.meta.outputs.tags }}"'"}'
+          PAYLOAD="{\"ref\":\"main\",\"sha\":\"$GITHUB_SHA\",\"tag\":\"$TAG\"}"
+          SIG=$(printf %s "$PAYLOAD" | openssl dgst -sha256 -hmac "$SECRET" | awk '{print $NF}')
+          curl -fsS -X POST "$URL" -H "Content-Type: application/json" -H "X-Hub-Signature-256: sha256=$SIG" -d "$PAYLOAD"
