@@ -38,3 +38,12 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+
+      - name: Вызов вебхука для автодеплоя
+        if: github.ref == 'refs/heads/main'
+        run: |
+          SIGNATURE=$(echo -n "$GITHUB_SHA" | openssl dgst -sha256 -hmac "${{ secrets.CD_WEBHOOK_SECRET }}" | sed 's/^.* //')
+          curl -X POST "${{ secrets.CD_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -H "X-Hub-Signature-256: sha256=$SIGNATURE" \
+            -d '{"ref":"main","sha":"'"$GITHUB_SHA"'","tag":"'"${{ steps.meta.outputs.tags }}"'"}'
