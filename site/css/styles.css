@@ -827,15 +827,46 @@ footer {
 
 /* Планшеты (от 768px до 992px) */
 @media (max-width: 992px) and (orientation: portrait){
-    #intro{
+    #intro {
         display: flex;
-        background: radial-gradient(circle at 50% 32.5%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), rgb(74, 74, 74);
         flex-direction: column-reverse;
-        align-items: center; /* Центрирование блоков по горизонтали */
-        justify-content: center; /* Центрирование блоков по вертикали */
+        align-items: center;
+        justify-content: center;
         height: 100dvh;
+        position: relative; 
+        background: none !important; 
+        overflow: hidden; 
     }
 
+    #intro::before {
+        content: '';
+        position: absolute; 
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(circle at 50% 32.5%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), rgb(74, 74, 74);
+        pointer-events: none; 
+    }
+
+    #intro .container_left,
+    #intro .container_right {
+        position: relative;
+        z-index: 1;
+        float: none;
+        width: 100vw;
+    }
+
+    #intro .container_left {
+        height: 50vh;
+    }
+
+    #intro .container_right {
+        left: 2.5vw;
+    }
+
+    #intro .intro-content {
+        display: contents; 
+    }
+    
     .nav-bar a:nth-child(2) {
         display: none;
     }
@@ -851,16 +882,6 @@ footer {
 
     h1 {
         font-size: 5vw
-    }
-
-    #intro .container_left {
-        float: none;
-        width: 100vw;
-        height: 50vh;
-    }
-    #intro .container_right {
-        float: none;
-        width: 100vw;
     }
 
     .hello{
