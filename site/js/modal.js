@@ -29,4 +29,3 @@ function hideModal(id) {
     navBar.style.display = 'flex'; // Возвращаем навигацию
     document.documentElement.classList.remove('no-scroll'); // Включаем прокрутку
 }
-
